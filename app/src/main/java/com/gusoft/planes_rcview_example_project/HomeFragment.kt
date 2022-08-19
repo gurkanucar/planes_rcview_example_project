@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gusoft.planes_rcview_example_project.databinding.FragmentHomeBinding
 
@@ -13,6 +14,9 @@ class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
+    private lateinit var list: ArrayList<PlaneModel>
+    private lateinit var planeAdapter: PlaneAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,8 +33,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var list = generateItems()
-        val planeAdapter = PlaneAdapter(list)
+        list = generateItems()
+        planeAdapter = PlaneAdapter(list)
         binding.apply {
             planesRcView.layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
@@ -38,9 +42,9 @@ class HomeFragment : Fragment() {
             planesRcView.setHasFixedSize(true)
         }
 
-        planeAdapter.onItemClick =::onItemClick
-        planeAdapter.onDeleteClick =::onDeleteClick
-        planeAdapter.onShowClick =::onShowClick
+        planeAdapter.onItemClick = ::onItemClick
+        planeAdapter.onDeleteClick = ::onDeleteClick
+        planeAdapter.onShowClick = ::onShowClick
 
         binding.planesRcView.adapter = planeAdapter
 
@@ -49,9 +53,9 @@ class HomeFragment : Fragment() {
 
     private fun generateItems(): ArrayList<PlaneModel> {
         val list: ArrayList<PlaneModel> = ArrayList<PlaneModel>()
-        list.add(PlaneModel("Hurkus - KT1T", R.drawable.kt1t, "TR", 40.0 , 356, 708, "2013"))
+        list.add(PlaneModel("Hurkus - KT1T", R.drawable.kt1t, "TR", 40.0, 356, 708, "2013"))
         list.add(PlaneModel("F16", R.drawable.f16, "US", 80.0, 1500, 2000, "1979"))
-        list.add(PlaneModel("F18", R.drawable.f18, "US", 65.0, 1190, 1000 , "1978"))
+        list.add(PlaneModel("F18", R.drawable.f18, "US", 65.0, 1190, 1000, "1978"))
         list.add(PlaneModel("F35", R.drawable.f35, "US", 130.0, 1200, 670, "2006"))
         list.add(PlaneModel("L39", R.drawable.l39, "US", 0.25, 500, 1200, "1968"))
         list.add(PlaneModel("SU57", R.drawable.su57, "RU", 40.0, 1320, 930, "2010"))
@@ -65,23 +69,33 @@ class HomeFragment : Fragment() {
     }
 
 
-    fun onItemClick(planeModel: PlaneModel){
-        Toast.makeText(requireContext(),
-            "Item Clicked -> $planeModel"
-            ,Toast.LENGTH_SHORT)
+    fun onItemClick(planeModel: PlaneModel) {
+        Toast.makeText(
+            requireContext(),
+            "Item Clicked -> $planeModel", Toast.LENGTH_SHORT
+        )
             .show()
     }
-    fun onDeleteClick(planeModel: PlaneModel){
-        Toast.makeText(requireContext(),
-            "Delete Clicked -> $planeModel"
-            ,Toast.LENGTH_SHORT)
+
+    fun onDeleteClick(planeModel: PlaneModel) {
+        Toast.makeText(
+            requireContext(),
+            "Delete Clicked -> $planeModel", Toast.LENGTH_SHORT
+        )
             .show()
+        val index = list.indexOf(planeModel)
+        list.removeAt(index)
+        planeAdapter.notifyItemRemoved(index)
     }
-    fun onShowClick(planeModel: PlaneModel){
-        Toast.makeText(requireContext(),
-            "Show Clicked -> $planeModel"
-            ,Toast.LENGTH_SHORT)
+
+    fun onShowClick(planeModel: PlaneModel) {
+        Toast.makeText(
+            requireContext(),
+            "Show Clicked -> $planeModel", Toast.LENGTH_SHORT
+        )
             .show()
+        Navigation.findNavController(binding.root)
+            .navigate(R.id.action_homeFragment_to_detailFragment)
     }
 
 
