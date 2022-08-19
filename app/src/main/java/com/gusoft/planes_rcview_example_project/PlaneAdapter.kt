@@ -34,9 +34,9 @@ class PlaneAdapter(private var data: ArrayList<PlaneModel>) :
             deleteButton.setOnClickListener { onDeleteClick(planeModel) }
             planeName.text = planeModel.name
             planeImage.setImageResource(planeModel.image)
-            country.text = "max speed: ${planeModel.country} mph"
+            country.text = "country: ${planeModel.country}"
             cost.text = "cost: ${numberFormat.format(planeModel.cost)}M"
-            speed.text = "max speed: ${planeModel.speed}"
+            speed.text = "max speed: ${planeModel.speed} mph"
             range.text = "range: ${planeModel.range} miles"
             date.text = "first flight: ${planeModel.date}"
         }
