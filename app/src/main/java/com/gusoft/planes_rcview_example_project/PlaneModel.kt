@@ -4,7 +4,7 @@ data class PlaneModel(
     val name: String,
     val image: Int,
     val country: String,
-    val cost: Int,
+    val cost: Double,
     val speed: Int,
     val range: Int,
     val date: String,
