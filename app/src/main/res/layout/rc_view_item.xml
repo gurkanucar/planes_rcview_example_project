@@ -44,7 +44,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.9"
+            app:layout_constraintVertical_bias="0.942"
             tools:srcCompat="@drawable/kt1t" />
 
         <TextView
@@ -60,7 +60,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            tools:text="Dassault Rafale" />
+            tools:text="Hurkus - KT1T" />
 
         <TextView
             android:id="@+id/speed"
@@ -80,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:textSize="15sp"
             android:textStyle="normal"
             app:layout_constraintStart_toEndOf="@+id/plane_image"
@@ -92,24 +92,36 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:textSize="15sp"
             android:textStyle="normal"
             app:layout_constraintStart_toEndOf="@+id/plane_image"
             app:layout_constraintTop_toBottomOf="@+id/range"
-            tools:text="date: 1985" />
+            tools:text="date: 2014" />
 
         <TextView
             android:id="@+id/country"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:textSize="15sp"
             android:textStyle="normal"
             app:layout_constraintStart_toEndOf="@+id/plane_image"
             app:layout_constraintTop_toBottomOf="@+id/date"
-            tools:text="country: USA" />
+            tools:text="country: TR" />
+
+        <TextView
+            android:id="@+id/cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:textSize="15sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toEndOf="@+id/plane_image"
+            app:layout_constraintTop_toBottomOf="@+id/country"
+            tools:text="cost: 35B$" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
