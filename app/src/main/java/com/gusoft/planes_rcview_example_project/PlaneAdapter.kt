@@ -8,11 +8,7 @@ import com.gusoft.planes_rcview_example_project.databinding.RcViewItemBinding
 class PlaneAdapter(private var data: ArrayList<PlaneModel>) :
     RecyclerView.Adapter<PlaneAdapter.ViewHolder>() {
 
-
-    class ViewHolder(val binding: RcViewItemBinding) : RecyclerView.ViewHolder(binding.root) {
-
-
-    }
+    class ViewHolder(val binding: RcViewItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
@@ -25,7 +21,7 @@ class PlaneAdapter(private var data: ArrayList<PlaneModel>) :
 
         holder.binding.apply {
             planeName.text = planeModel.name
-            planeImage.setBackgroundResource(planeModel.image)
+            planeImage.setImageResource(planeModel.image)
             country.text = planeModel.country
             cost.text = planeModel.cost.toString()
             speed.text = planeModel.speed.toString()
