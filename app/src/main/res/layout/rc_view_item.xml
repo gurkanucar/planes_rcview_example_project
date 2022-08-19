@@ -66,11 +66,13 @@
             android:id="@+id/speed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:textSize="15sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/plane_image"
             app:layout_constraintTop_toBottomOf="@+id/plane_name"
             tools:text="max speed: 1200kn" />
