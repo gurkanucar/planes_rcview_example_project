@@ -11,11 +11,11 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/delete_button2"
+            android:id="@+id/delete_button"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginEnd="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/imageView"
+            app:layout_constraintBottom_toTopOf="@+id/image"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.76"
             app:layout_constraintStart_toEndOf="@+id/plane_name"
@@ -24,7 +24,7 @@
             app:srcCompat="@drawable/ic_baseline_delete" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/image"
             android:layout_width="wrap_content"
             android:layout_height="200dp"
             android:layout_marginStart="24dp"
@@ -37,7 +37,7 @@
             app:layout_constraintVertical_bias="0.116" />
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/planeName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
@@ -47,7 +47,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/image" />
 
         <TextView
             android:id="@+id/speed"
@@ -58,7 +58,7 @@
             android:text="TextView"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name" />
+            app:layout_constraintTop_toBottomOf="@+id/planeName" />
 
         <TextView
             android:id="@+id/cost"

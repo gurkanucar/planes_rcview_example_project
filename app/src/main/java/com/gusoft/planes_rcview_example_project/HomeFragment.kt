@@ -78,24 +78,27 @@ class HomeFragment : Fragment() {
     }
 
     fun onDeleteClick(planeModel: PlaneModel) {
-        Toast.makeText(
-            requireContext(),
-            "Delete Clicked -> $planeModel", Toast.LENGTH_SHORT
-        )
-            .show()
+//        Toast.makeText(
+//            requireContext(),
+//            "Delete Clicked -> $planeModel", Toast.LENGTH_SHORT
+//        )
+//            .show()
         val index = list.indexOf(planeModel)
         list.removeAt(index)
         planeAdapter.notifyItemRemoved(index)
     }
 
     fun onShowClick(planeModel: PlaneModel) {
-        Toast.makeText(
-            requireContext(),
-            "Show Clicked -> $planeModel", Toast.LENGTH_SHORT
-        )
-            .show()
+//        Toast.makeText(
+//            requireContext(),
+//            "Show Clicked -> $planeModel", Toast.LENGTH_SHORT
+//        )
+//            .show()
+
+        val bundle = Bundle()
+        bundle.putParcelable("planeModel", planeModel)
         Navigation.findNavController(binding.root)
-            .navigate(R.id.action_homeFragment_to_detailFragment)
+            .navigate(R.id.action_homeFragment_to_detailFragment, bundle)
     }
 
 
