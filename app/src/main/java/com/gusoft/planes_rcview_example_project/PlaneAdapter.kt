@@ -4,6 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.gusoft.planes_rcview_example_project.databinding.RcViewItemBinding
+import java.text.NumberFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class PlaneAdapter(private var data: ArrayList<PlaneModel>) :
     RecyclerView.Adapter<PlaneAdapter.ViewHolder>() {
@@ -19,14 +22,16 @@ class PlaneAdapter(private var data: ArrayList<PlaneModel>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val planeModel: PlaneModel = data[position]
 
+        val numberFormat = NumberFormat.getCurrencyInstance(Locale("en", "US"))
+
         holder.binding.apply {
             planeName.text = planeModel.name
             planeImage.setImageResource(planeModel.image)
-            country.text = planeModel.country
-            cost.text = planeModel.cost.toString()
-            speed.text = planeModel.speed.toString()
-            range.text = planeModel.range.toString()
-            date.text = planeModel.date
+            country.text = "max speed: ${planeModel.country} mph"
+            cost.text = "cost: ${numberFormat.format(planeModel.cost)}M"
+            speed.text = "max speed: ${planeModel.speed}"
+            range.text = "range: ${planeModel.range} miles"
+            date.text = "first flight: ${planeModel.date}"
         }
 
     }
