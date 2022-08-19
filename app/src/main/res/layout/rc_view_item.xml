@@ -20,9 +20,10 @@
             android:id="@+id/delete_button"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toStartOf="@+id/show_button"
-            app:layout_constraintHorizontal_bias="0.76"
+            app:layout_constraintHorizontal_bias="0.371"
             app:layout_constraintStart_toEndOf="@+id/plane_name"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_baseline_delete" />
@@ -31,25 +32,12 @@
             android:id="@+id/show_button"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.045"
             app:srcCompat="@drawable/ic_baseline_show" />
-
-        <ImageView
-            android:id="@+id/plane_image"
-            android:layout_width="180dp"
-            android:layout_height="130dp"
-            android:layout_margin="20dp"
-            android:layout_marginStart="16dp"
-            android:layout_weight="0"
-            android:scaleType="centerCrop"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.942"
-            tools:srcCompat="@drawable/kt1t" />
 
         <TextView
             android:id="@+id/plane_name"
@@ -57,51 +45,45 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="10dp"
             android:textSize="22sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/plane_image"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
             tools:text="Hurkus - KT1T" />
 
         <TextView
             android:id="@+id/speed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
             android:textSize="15sp"
             android:textStyle="normal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/plane_image"
+            app:layout_constraintStart_toEndOf="@+id/cardView2"
             app:layout_constraintTop_toBottomOf="@+id/plane_name"
             tools:text="max speed: 1200kn" />
 
         <TextView
-            android:id="@+id/range"
+            android:id="@+id/cost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:textSize="15sp"
             android:textStyle="normal"
-            app:layout_constraintStart_toEndOf="@+id/plane_image"
-            app:layout_constraintTop_toBottomOf="@+id/speed"
-            tools:text="range: 25m" />
+            app:layout_constraintStart_toEndOf="@+id/cardView2"
+            app:layout_constraintTop_toBottomOf="@+id/country"
+            tools:text="cost: 35B$" />
 
         <TextView
             android:id="@+id/date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:textSize="15sp"
             android:textStyle="normal"
-            app:layout_constraintStart_toEndOf="@+id/plane_image"
+            app:layout_constraintStart_toEndOf="@+id/cardView2"
             app:layout_constraintTop_toBottomOf="@+id/range"
             tools:text="date: 2014" />
 
@@ -109,25 +91,45 @@
             android:id="@+id/country"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:textSize="15sp"
             android:textStyle="normal"
-            app:layout_constraintStart_toEndOf="@+id/plane_image"
+            app:layout_constraintStart_toEndOf="@+id/cardView2"
             app:layout_constraintTop_toBottomOf="@+id/date"
             tools:text="country: TR" />
 
         <TextView
-            android:id="@+id/cost"
+            android:id="@+id/range"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
             android:textSize="15sp"
             android:textStyle="normal"
-            app:layout_constraintStart_toEndOf="@+id/plane_image"
-            app:layout_constraintTop_toBottomOf="@+id/country"
-            tools:text="cost: 35B$" />
+            app:layout_constraintStart_toEndOf="@+id/cardView2"
+            app:layout_constraintTop_toBottomOf="@+id/speed"
+            tools:text="range: 25m" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="190dp"
+            android:layout_height="143dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/plane_name">
+
+            <ImageView
+                android:id="@+id/plane_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0"
+                android:scaleType="centerCrop"
+                android:visibility="visible"
+                tools:srcCompat="@drawable/kt1t" />
+        </androidx.cardview.widget.CardView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

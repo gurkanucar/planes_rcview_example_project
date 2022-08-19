@@ -36,13 +36,6 @@ class DetailFragment : Fragment() {
         val planeModel: PlaneModel = arguments?.get("planeModel") as PlaneModel
 
         binding.apply {
-            deleteButton.setOnClickListener {
-                Toast.makeText(
-                    requireContext(),
-                    "Delete Clicked -> $planeModel", Toast.LENGTH_SHORT
-                )
-                    .show()
-            }
             planeName.text = planeModel.name
             image.setImageResource(planeModel.image)
             country.text = "country: ${planeModel.country} "
